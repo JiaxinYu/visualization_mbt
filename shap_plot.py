@@ -1,8 +1,13 @@
 ###
 ### after automl modeling, plot with shap tools
 ###
+def getColumnN(df, binsize, mass0):
+    columns = []
+    for i in range(df.shape[1]):
+        columns.append('m/z %s' %(int((binsize*i) + mass0)))
+    return columns
 
-def getColumnN(model, binsize, mass0):
+def getFeatureN(model, binsize, mass0):
     columns = []
     for i in model.feature_name_:
         columns.append('m/z %s' %((binsize*int(i)) + mass0))
